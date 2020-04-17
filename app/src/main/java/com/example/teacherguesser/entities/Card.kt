@@ -1,3 +1,5 @@
 package com.example.teacherguesser.entities
 
-data class Card (val drawableId: Int)
+import com.example.teacherguesser.CardStatus
+
+data class Card (var status: CardStatus = CardStatus.UNKNOWN, var drawableId: Int)
