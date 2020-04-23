@@ -16,10 +16,10 @@ class MainViewModel(
         application, listOf(
             Card(drawableId = R.drawable.ic_avramenkovs),
             Card(drawableId = R.drawable.ic_avramenkovs),
-            Card(drawableId = R.drawable.ic_avramenkoas),
-            Card(drawableId = R.drawable.ic_avramenkoas),
             Card(drawableId = R.drawable.ic_grebenovichue),
             Card(drawableId = R.drawable.ic_grebenovichue),
+            Card(drawableId = R.drawable.ic_avramenkoas),
+            Card(drawableId = R.drawable.ic_avramenkoas),
             Card(drawableId = R.drawable.ic_nemchenkovv),
             Card(drawableId = R.drawable.ic_nemchenkovv),
             Card(drawableId = R.drawable.ic_onischenkobo),
