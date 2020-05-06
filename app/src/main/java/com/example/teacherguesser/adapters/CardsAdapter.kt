@@ -15,8 +15,7 @@ import com.example.teacherguesser.extensions.toDp
 import kotlinx.android.synthetic.main.card_item.view.*
 
 
-class CardsAdapter(private val context: Context, val cards: List<Card>) : BaseAdapter() {
-
+class CardsAdapter(private val context: Context, var cards: List<Card>) : BaseAdapter() {
 
     override fun getCount(): Int {
         return cards.size
@@ -38,18 +37,11 @@ class CardsAdapter(private val context: Context, val cards: List<Card>) : BaseAd
             ContextCompat.getDrawable(
                 context,
                 if (currentItem.status == CardStatus.UNKNOWN)
-                    R.drawable.ic_unknown
+                    R.drawable.ic_faculty
                 else
                     cards[position].drawableId
             )
         )
         return view
     }
-
-    fun setStatus(position: Int) {
-
-    }
-
-
-
 }

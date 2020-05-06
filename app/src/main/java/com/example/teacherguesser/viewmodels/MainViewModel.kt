@@ -99,14 +99,8 @@ class MainViewModel(
     fun startNewGame() {
         _guessedPairs.value = 0
         numberOfOpenedCards = 0
-        cards.forEach { it.status = CardStatus.UNKNOWN }
-        cardsAdapter.notifyDataSetChanged()
-    }
-
-    fun setSalapatovItems() {
-        cards.forEach {
-            it.drawableId = R.drawable.ic_salapatovvi
-            it.status = CardStatus.OPENED
+        cardsAdapter.cards = cards.shuffled().apply {
+            forEach { it.status = CardStatus.UNKNOWN }
         }
         cardsAdapter.notifyDataSetChanged()
     }

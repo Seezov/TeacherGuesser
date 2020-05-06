@@ -12,11 +12,22 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btn_new_game"
+        app:layout_constraintBottom_toTopOf="@id/grid"
         android:textColor="@color/black"
-        android:layout_marginTop="8dp"
-        android:textSize="24sp"/>
+        android:textSize="24sp"
+        tools:text="You've guessed 8 pairs"/>
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_new_game"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/txt_title"
+        app:layout_constraintBottom_toTopOf="@id/grid"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:visibility="gone"
+        android:text="New Game"/>
     <GridView
         android:id="@+id/grid"
         android:layout_width="wrap_content"
@@ -24,6 +35,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/txt_title"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

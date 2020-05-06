@@ -7,6 +7,7 @@ import android.content.DialogInterface.BUTTON_POSITIVE
 import android.os.Bundle
 import android.widget.AdapterView
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import com.example.teacherguesser.R
 import com.example.teacherguesser.viewmodels.MainViewModel
@@ -28,20 +29,25 @@ class MainActivity : BaseMvvmActivity() {
             }
         }
 
+        btn_new_game.setOnClickListener {
+            viewModel.startNewGame()
+            btn_new_game.isVisible = false
+        }
+
         viewModel.guessedPairs.observe(this, Observer {
             txt_title.text = "Pairs guessed: $it"
             if (it == 8) {
                 AlertDialog.Builder(this).apply {
-                    setTitle("YOU HAVE WON")
-                    setMessage("Візьми з полки пірожок, а потім поклади на місце!")
-                    setNegativeButton("НЕ ВІЗЬМУ! (А треба)"
-                    ) { _, _ ->
-                        txt_title.text = "YOU DIED"
-                        viewModel.setSalapatovItems()
+                    setTitle("VICTORY")
+                    setMessage("Start a new game?")
+                    setNegativeButton("No") { _, _ ->
+                        txt_title.text = "You have won!"
+                        btn_new_game.isVisible = true
                     }
-                    setPositiveButton("БЕРУ (New Game)") { _, _ ->
+                    setPositiveButton("Yes") { _, _ ->
                         viewModel.startNewGame()
                     }
+                    setCancelable(false)
                 }.create().show()
             }
         })
